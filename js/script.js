@@ -11,7 +11,7 @@ function handleSearchFormSubmit(event) {
     return;
   }
 
-  var queryString = './search-results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+  var queryString = './results.html?q=' + searchInputVal + '&format=' + formatInputVal;
 
   location.assign(queryString);
 }
