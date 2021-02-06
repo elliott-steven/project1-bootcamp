@@ -34,19 +34,20 @@
                         <p class="m-2 has-text-centered">
                             Search for videos, streams, reviews, and description for any game on any console.
                         </p>
-
-                        <input class="input m-2" type="text" placeholder="Search by Game">
-                        <div class="select is-fullwidth m-2">
-                            <select>
-                              <option>Select dropdown</option>
-                              <option>Option 1</option>
-                              <option>Option 2</option>
-                              <option>Option 3</option>
-                              <option>Option 4</option>
-                              <option>Option 5</option>
-                            </select>
-                        </div>
-                        <button class="button is-fullwidth m-2">Click Me</button>
+                        <form id="search-form">
+                            <input id ="search-input" class="input m-2" type="text" placeholder="Search by Game">
+                            <div class="select is-fullwidth m-2">
+                                <select id="format-input">
+                                <option value=""disabled selected>Select dropdown</option>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                                <option>Option 4</option>
+                                <option>Option 5</option>
+                                </select>
+                            </div>
+                            <button class="button is-fullwidth m-2">Click Me</button>
+                        </form>
                     </div>
                 </div>
             </section>
