@@ -1,11 +1,19 @@
-var settings = {
-	"url": "https://api.rawg.io/api/games?key=2282edd787924a8f993a140a00dcd964",
-	"method": "GET",
-	"timeout": 0,
-	};
-  
-  $.ajax(settings).done(function (response) {
-	console.log(response);
+var searchFormEl = document.querySelector('#search-form');
 
-	
-  });
+function handleSearchFormSubmit(event) {
+  event.preventDefault();
+
+  var searchInputVal = document.querySelector('#search-input').value;
+  var formatInputVal = document.querySelector('#format-input').value;
+
+  if (!searchInputVal) {
+    console.error('You need a search input value!');
+    return;
+  }
+
+  var queryString = './search-results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+
+  location.assign(queryString);
+}
+
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
