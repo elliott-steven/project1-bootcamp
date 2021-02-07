@@ -2,64 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <!--Make the page responsive-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--This is the Bulma cdn-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <!--I like this font-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!--This is my own css stylesheet-->
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <title>Project 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Video Game Search Engine</title>
 </head>
 
 <body>
-    <section class="section">
-        <div class="container">
-            <h1 class="title has-text-centered is-size-1">
-                Video Game Database
-            </h1>
-            <br>
-            <br>
 
-            <section class="hero is-dark is-bold is-halfheight">
-                <div class="hero-body">
-                    <div class="container">
-                        <h1 class="title m-2 has-text-centered">
-                            Video Game Search Engine
-                        </h1>
-                        <p class="m-2 has-text-centered">
-                            Search for videos, streams, reviews, and description for any game on any console.
-                        </p>
-                        <form id="search-form">
-                            <input id ="search-input" class="input m-2" type="text" placeholder="Search by Game">
-                            <div class="select is-fullwidth m-2">
-                                <select id="format-input">
-                                <option value=""disabled selected>Select dropdown</option>
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                                <option>Option 5</option>
-                                </select>
-                            </div>
-                            <button class="button is-fullwidth m-2">Click Me</button>
-                        </form>
+    <section class="wrapper">
+        <div class="columns">
+            <div class="column sideBar">
+                <h1 class="title m-2 has-text-centered">
+                    Video Game Search Engine
+                </h1>
+
+                <form id="search-form">
+                    <input id="search-input" class="input m-2" type="text" placeholder="Search Games">
+                    <div class="select is-fullwidth m-2">
+                        <select id="format-input">
+                            <option value="" disabled selected>Select dropdown</option>
+                            <option value="">Option 1</option>
+                        </select>
                     </div>
-                </div>
-            </section>
+                    <button class="button is-fullwidth m-2">Search</button>
+                </form>
+            </div>
+
+            <div class="column ">
+                <h2>Showing results for <span id="result-text"></span></h2>
+                <div id="result-content"></div>
+            </div>
         </div>
     </section>
-</body>
 
-<!--JQuery CDN-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!--Moment CDN-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<!--My javasript source-->
-<script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
+</body>
 
 </html>
