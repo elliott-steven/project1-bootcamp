@@ -15,10 +15,22 @@ function handleSearchFormSubmit(event) {
   }).then(function (gameData) {
     $('#result-content').empty();
     //console.log(gameData);
+    var rc = $("#result-content")
     gameData.results.forEach(function (elem) {
       //console.log(elem.name);
-      $('#result-content').append(`<div class="card">${elem.name}</div>`);
-      $('#result-content').append(`<div class="card-content"><img src=${elem.background_image}></div>`);
+      
+      var resultDiv = $("<div>")
+      resultDiv.addClass("card mb-4 cardStyle")
+      resultDiv.text(`${elem.name}`)
+      var resultDiv1 = $("<div>")
+      resultDiv1.addClass("card-content")
+      var resultImg = $("<img>")
+      resultImg.attr("src", `${elem.background_image}`)
+      resultDiv1.append(resultImg)
+      resultDiv.append(resultDiv1)
+      rc.append(resultDiv)
+      //$('#result-content').append(`<div class="card">${elem.name}</div>`);
+      //$('#result-content').append(`<div class="card-content"><img src=${elem.background_image}></div>`);
     })
   })
 }
