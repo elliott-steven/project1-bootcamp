@@ -20,7 +20,7 @@
 
 img {
     border-radius: 4px;
-    width: 350px;
+    max-width: 800px;
 }
 
 .resultCard {
