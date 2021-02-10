@@ -2,19 +2,22 @@ var searchFormEl = document.querySelector('#search-form');
 
 function handleSearchFormSubmit(event) {
   event.preventDefault();
+  //adds search input to api url
   var searchInputVal = document.querySelector('#search-input').value;
+  //adds dropdown selection to the api url
   var formatInputVal = document.querySelector('#format-input').value;
   if (!searchInputVal) {
     console.error('You need a search input value!');
     return;
   }
+  //queries based on search selections
   var queryString = 'https://api.rawg.io/api/' + formatInputVal + '?api=2282edd787924a8f993a140a00dcd964' + '&search=' + searchInputVal;
   $.ajax({
     url: queryString,
     method: 'GET',
+    //create custom cards for each game returned from query
   }).then(function (gameData) {
     $('#result-content').empty();
-    console.log(gameData);
     var rc = $("#result-content")
     gameData.results.forEach(function (elem) {
       var resultDiv = $("<div>")
@@ -69,5 +72,5 @@ $('#format-input').change(function () {
   var setValue = $(this).val();
   localStorage.setItem("selectedOption", setValue);
 });
-
+//runs search form function after submit
 searchFormEl.addEventListener('submit', handleSearchFormSubmit)
