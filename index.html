@@ -22,15 +22,20 @@
                 </h1>
 
                 <form id="search-form">
-                    <input id="search-input" class="input m-2" type="text" placeholder="Search Games">
                     <div class="select is-fullwidth m-2">
                         <select id="format-input">
-                            <option value="" disabled selected>Select dropdown</option>
+                            <option value="" disabled selected>Select Search Option</option>
                             <option value="games">Games</option>
+                            <option value="genres">Genre - Results May Vary</option>
                         </select>
                     </div>
+                    <input id="search-input" class="input m-2" type="text" placeholder="Search Games">
+
                     <button class="button is-fullwidth m-2 searchBtn">Search</button>
                 </form>
+                <!--game search history placeholder. Currently not in use. JS not working correctly-->
+                <div class="content" id="game-history"></div>
+
             </div>
 
             <div class="column">
