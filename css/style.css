@@ -2,21 +2,29 @@
   box-sizing: border-box;
 }
 
+html {
+    background-color: #0a1e36;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: lightgray;
+    font-family: 'Roboto', sans-serif;
 }
 
 .wrapper {
-    margin-top: 40px;
+    padding-top: 40px;
     margin-left: 30px;
     margin-right: 30px;
 }
 
 .sideBar {
     max-width: 350px;
-    background-color: cadetblue;
+    background-color: #246dc0;
     padding-right: 30px;
+}
+
+
+.title {
+    color: white;
 }
 
 .backBtn {
@@ -29,15 +37,21 @@ img {
 }
 
 .resultCard {
-    
     font-weight: bolder;
     font-size: x-large;
 }
+
+.resultTitle {
+    font-size: x-large;
+    color: white;
+}
 .cardStyle {
+    background-color: #f1f6fc;
     border-radius: 10px;
     border-style: double;
     border-color: rgb(148, 167, 185);
-    margin: 20px;
-    padding: 10px;
+    margin: 10px;
+    padding: 5px;
     align-content: center;
+    max-width: 360px;
 }
