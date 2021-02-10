@@ -132,10 +132,10 @@ $('#format-input').change(function () {
 });
 
 //function for image and video tabs
-=======
 
 
-// Function to make tabs active
+
+
 
 function openTab(evt, tabName) {
   var i, x, tablinks;
