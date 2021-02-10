@@ -33,6 +33,7 @@ function handleSearchFormSubmit(event) {
       //$('#result-content').append(`<div class="card">${elem.name}</div>`);
       //$('#result-content').append(`<div class="card-content"><img src=${elem.background_image}></div>`);
     })
+      // queries for videos based on game slected
       $.ajax({
         url: "https://www.giantbomb.com/api/search/?api_key=7bcc8a1b2a8841352d1a19e8e26b794d45964b7f&format=jsonp&query=" + searchInputVal+ "&resources=video",
         method: "GET",
@@ -43,8 +44,8 @@ function handleSearchFormSubmit(event) {
           "accept": "application/json",
           "Access-Control-Allow-Origin":"*"
       }
-        }).then(function(response){
-        console.log(response);
+        //Create cards for each video displayed      
+        }).then(function(response){        
         var resultContent = $("#result-content-videos")
         response.results.forEach(function (elem){
           var results = $("<div>")
@@ -100,8 +101,8 @@ $('#format-input').change(function () {
   localStorage.setItem("selectedOption", setValue);
 });
 
-//runs search form function after submit
 
+// Function to make tabs active
 function openTab(evt, tabName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("content-tab");
@@ -118,5 +119,5 @@ function openTab(evt, tabName) {
   // evt.currentTarget.children[0].children[1].className.replace(" has-text-link", " has-text-white");
 }
 
-
+//runs search form function after submit
 searchFormEl.addEventListener('submit', handleSearchFormSubmit)
