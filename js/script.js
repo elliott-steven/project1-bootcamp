@@ -33,6 +33,33 @@ function handleSearchFormSubmit(event) {
       //$('#result-content').append(`<div class="card">${elem.name}</div>`);
       //$('#result-content').append(`<div class="card-content"><img src=${elem.background_image}></div>`);
     })
+      $.ajax({
+        url: "https://www.giantbomb.com/api/search/?api_key=7bcc8a1b2a8841352d1a19e8e26b794d45964b7f&format=jsonp&query=" + searchInputVal+ "&resources=video",
+        method: "GET",
+        dataType: "jsonp",
+        jsonp: "json_callback",
+        crossDomain: "true",
+        headers: {
+          "accept": "application/json",
+          "Access-Control-Allow-Origin":"*"
+      }
+        }).then(function(response){
+        console.log(response);
+        var resultContent = $("#result-content-videos")
+        response.results.forEach(function (elem){
+          var results = $("<div>")
+          results.addClass("card mb-4 cardStyle")
+          results.text(`${elem.name}`)
+          var results1 = $("<div>")
+          results1.addClass("card-content")
+          var resultVid = $("<iframe>")
+          resultVid.attr("src", `${elem.embed_player}`)
+          results1.append(resultVid)
+          results.append(results1)
+          resultContent.append(results)
+          
+        })      
+        })
   })
   //localstorage for Game History
   //Not entirely functional. Values in localstorage are not unique
@@ -72,5 +99,24 @@ $('#format-input').change(function () {
   var setValue = $(this).val();
   localStorage.setItem("selectedOption", setValue);
 });
+
 //runs search form function after submit
+
+function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("content-tab");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tab");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" is-active", " not-active");
+      // tablinks[i].children[0].children[1].className.replace(" has-text-white", " has-text-link");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className = "tab link-tab is-active";
+  // evt.currentTarget.children[0].children[1].className.replace(" has-text-link", " has-text-white");
+}
+
+
 searchFormEl.addEventListener('submit', handleSearchFormSubmit)

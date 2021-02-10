@@ -22,9 +22,21 @@ body {
     padding-right: 30px;
 }
 
+.link-tab {
+    background-color: #246dc0;
+}
+
 
 .title {
     color: #0A1E36;
+}
+
+.is-active > a > span {
+    color: #246dc0;;
+}
+
+.not-active > a > span {
+    color: white;
 }
 
 .backBtn {
