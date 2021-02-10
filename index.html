@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&family=Merriweather:wght@700&display=swap"
         rel="stylesheet" />
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Video Game Search Engine</title>
 </head>
@@ -23,6 +25,7 @@
                 <h1 class="title m-2 has-text-centered">
                     Video Game Search
                 </h1>
+                <!--Search bar with dropdowns and search button-->
                 <form id="search-form">
                     <div class="select is-fullwidth m-2">
                         <select id="format-input">
@@ -48,7 +51,6 @@
             <!--Section for displaying search results-->
             <div class="column pt-0">
                 <section class="hero">
-
                     <div class="hero-foot">
                         <nav class="tabs is-boxed is-large is-centered">
                             <div class="container">
@@ -56,17 +58,19 @@
                                     <li class="tab link-tab is-active" onclick="openTab(event,'pictures')"><a><span
                                                 class="icon is-small"><i class="fas fa-image"
                                                     aria-hidden="true"></i></span>
-                                            <span>Pictures</span></a></li>
+                                            <span>Pictures</span></a>
+                                    </li>
                                     <li class="tab link-tab not-active" onclick="openTab(event,'videos')"><a><span
                                                 class="icon is-small"><i class="fas fa-film"
                                                     aria-hidden="true"></i></span>
-                                            <span>Videos</span></a></li>
+                                            <span>Videos</span></a>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
                     </div>
                 </section>
-
+                <!--Container for picture and video tabs-->
                 <div class="container section">
                     <div id="pictures" class="content-tab">
                         <h2 class="resultTitle">Search Results:<span id="result-text"></span></h2>
