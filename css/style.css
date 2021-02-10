@@ -18,7 +18,7 @@ body {
 
 .sideBar {
     max-width: 350px;
-    background-color: #246dc0;
+    background-color: #69A2E2;
     padding-right: 30px;
 }
 
@@ -28,7 +28,7 @@ body {
 
 
 .title {
-    color: white;
+    color: #0A1E36;
 }
 
 .is-active > a > span {
@@ -40,7 +40,7 @@ body {
 }
 
 .backBtn {
-    color: black;
+    color: #000000;
 }
 
 img {
@@ -55,15 +55,19 @@ img {
 
 .resultTitle {
     font-size: x-large;
-    color: white;
+    color: #ffffff;
 }
 .cardStyle {
     background-color: #f1f6fc;
     border-radius: 10px;
     border-style: double;
-    border-color: rgb(148, 167, 185);
+    border-color: #94a7b9;
     margin: 10px;
     padding: 5px;
     align-content: center;
     max-width: 360px;
+}
+
+.logo {
+    color: #0a1e36;
 }
