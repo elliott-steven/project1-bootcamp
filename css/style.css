@@ -3,7 +3,7 @@
 }
 
 html {
-    background-color: #0a1e36;
+    background-color: #0A1E36;
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 }
 
 .link-tab {
-    background-color: #246dc0;
+    background-color: #69A2E2;
 }
 
 
@@ -32,11 +32,11 @@ body {
 }
 
 .is-active > a > span {
-    color: #246dc0;;
+    color: #0A1E36;;
 }
 
 .not-active > a > span {
-    color: white;
+    color: #0A1E36;
 }
 
 .backBtn {
@@ -45,7 +45,7 @@ body {
 
 img {
     border-radius: 4px;
-    max-width: 300px;
+    max-width: 325px;
 }
 
 .resultCard {
@@ -55,17 +55,18 @@ img {
 
 .resultTitle {
     font-size: x-large;
-    color: #ffffff;
+    color: #dde9f8;
+    text-align: center;
 }
 .cardStyle {
-    background-color: #f1f6fc;
+    background-color: #dde9f8;
     border-radius: 10px;
     border-style: double;
     border-color: #94a7b9;
     margin: 10px;
     padding: 5px;
     align-content: center;
-    max-width: 360px;
+    max-width: 400px;
 }
 
 .logo {

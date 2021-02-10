@@ -11,11 +11,11 @@ function handleSearchFormSubmit(event) {
     return;
   }
   //queries based on search selections
-  var queryString = 'https://api.rawg.io/api/' + formatInputVal + '?api=2282edd787924a8f993a140a00dcd964' + '&search=' + searchInputVal;
+  var queryString = 'https://api.rawg.io/api/' + formatInputVal + '?api=2282edd787924a8f993a140a00dcd964' + '&search=' + searchInputVal + '&page_size=50' + '&search_precise=true';
   $.ajax({
     url: queryString,
     method: 'GET',
-    //create custom cards for each game returned from query
+    //create custom cards for each game returned from RAWG query
   }).then(function (gameData) {
     $('#result-content').empty();
     var rc = $("#result-content")
@@ -30,9 +30,37 @@ function handleSearchFormSubmit(event) {
       resultDiv1.append(resultImg)
       resultDiv.append(resultDiv1)
       rc.append(resultDiv)
-      //$('#result-content').append(`<div class="card">${elem.name}</div>`);
-      //$('#result-content').append(`<div class="card-content"><img src=${elem.background_image}></div>`);
     })
+
+    //create custom cards for each game returned from Giant Bomb query
+    $.ajax({
+      url: "https://www.giantbomb.com/api/search/?api_key=7bcc8a1b2a8841352d1a19e8e26b794d45964b7f&format=jsonp&query=" + searchInputVal + "&resources=video",
+      method: "GET",
+      dataType: "jsonp",
+      jsonp: "json_callback",
+      crossDomain: "true",
+      headers: {
+        "accept": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      }
+    }).then(function (response) {
+      $('#result-content-videos').empty();
+      var resultContent = $("#result-content-videos")
+      response.results.forEach(function (elem) {
+        var results = $("<div>")
+        results.addClass("card mb-4 cardStyle")
+        results.text(`${elem.name}`)
+        var results1 = $("<div>")
+        results1.addClass("card-content")
+        var resultVid = $("<iframe>")
+        resultVid.attr("src", `${elem.embed_player}`)
+        results1.append(resultVid)
+        results.append(results1)
+        resultContent.append(results)
+
+      })
+    })
+
       // queries for videos based on game slected
       $.ajax({
         url: "https://www.giantbomb.com/api/search/?api_key=7bcc8a1b2a8841352d1a19e8e26b794d45964b7f&format=jsonp&query=" + searchInputVal+ "&resources=video",
@@ -61,9 +89,11 @@ function handleSearchFormSubmit(event) {
           
         })      
         })
+
   })
   //localstorage for Game History
-  //Not entirely functional. Values in localstorage are not unique
+  //Not entirely functional. Values in localstorage are not unique.
+  //search history ends up too long
   /*   gameName = searchInputVal
   
     var gameHistory = document.getElementById("game-history");
@@ -91,7 +121,7 @@ function handleSearchFormSubmit(event) {
       gameHistory.prepend(list);
     } */
 };
-//using localstorage to remember selected drop down option
+//remember selected drop down option using localstorage
 window.onload = function () {
   var setDropdown = localStorage.getItem("selectedOption");
   $('#format-input').val(setDropdown);
@@ -101,18 +131,22 @@ $('#format-input').change(function () {
   localStorage.setItem("selectedOption", setValue);
 });
 
+//function for image and video tabs
+=======
+
 
 // Function to make tabs active
+
 function openTab(evt, tabName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("content-tab");
   for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
+    x[i].style.display = "none";
   }
   tablinks = document.getElementsByClassName("tab");
   for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" is-active", " not-active");
-      // tablinks[i].children[0].children[1].className.replace(" has-text-white", " has-text-link");
+    tablinks[i].className = tablinks[i].className.replace(" is-active", " not-active");
+    // tablinks[i].children[0].children[1].className.replace(" has-text-white", " has-text-link");
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className = "tab link-tab is-active";
